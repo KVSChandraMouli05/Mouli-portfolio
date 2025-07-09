@@ -10,7 +10,7 @@
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body>
-
+  <div class="stars"></div>
   <!-- SIDEBAR NAV -->
   <nav class="navbar">
     <div class="logo">Mouli 🚀</div>
@@ -26,7 +26,7 @@
   </nav>
 
   <main class="main-content">
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <header class="hero" data-aos="fade-down">
       <div class="container">
         <h1 class="animated-name">KVS Chandra Mouli</h1>
@@ -105,7 +105,7 @@
           <span class="tag">VS Code</span>
           <span class="tag">Jupyter</span>
           <span class="tag">Google Colab</span>
-          <span class="tag">Kaggle</span>  
+          <span class="tag">Kaggle</span>
         </div>
         <h3>Soft Skills</h3>
         <div class="grid">
@@ -143,6 +143,73 @@
       </div>
     </div>
   </section>
+
+ <section class="section education" id="education">
+  <div class="container">
+    <h2>🎓 Education</h2>
+    
+    <div class="edu-box">
+      <h3>SRM Institute of Science and Technology</h3>
+      <p>B.Tech – CSE (Data Science)</p>
+      <p>Aug 2023 – May 2027</p>
+      <p><strong>CGPA:</strong> <span class="counter" data-count="8.81">0.00</span> (2nd Year)</p>
+    </div>
+
+    <div class="edu-box">
+      <h3>Achievvers Junior College, Visakhapatnam</h3>
+      <p>Class XII – MPC</p>
+      <p>Completed: March 2023</p>
+      <p><strong>Percentage:</strong> <span class="counter" data-count="87.7">0.00</span>%</p>
+    </div>
+
+    <div class="edu-box">
+      <h3>Sri Chaitanya Techno School, Narsipatnam</h3>
+      <p>Class X</p>
+      <p>Completed: June 2021</p>
+      <p><strong>Percentage:</strong> <span class="counter" data-count="95.5">0.00</span>%</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  function animateCounter(el) {
+    const target = +el.getAttribute('data-count');
+    const duration = 2000;
+    const stepTime = 20;
+    let count = 0;
+    const steps = Math.ceil(duration / stepTime);
+    const increment = target / steps;
+
+    const update = () => {
+      count += increment;
+      if (count >= target) {
+        el.textContent = target.toFixed(2);
+      } else {
+        el.textContent = count.toFixed(2);
+        requestAnimationFrame(update);
+      }
+    };
+
+    requestAnimationFrame(update);
+  }
+
+  function handleScroll() {
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      const rect = counter.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight && rect.bottom >= 0;
+
+      if (inView && !counter.classList.contains('animated')) {
+        counter.classList.add('animated');
+        animateCounter(counter);
+      }
+    });
+  }
+
+  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('load', handleScroll);
+</script>
+
 
 <section class="section resume" id="resume" data-aos="fade-up">
   <div class="container">
