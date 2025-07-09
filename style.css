@@ -7,11 +7,27 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
   color: #ffffff;
   line-height: 1.6;
   display: flex;
   min-height: 100vh;
+  background: #0a0a23;
+  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* STARS ANIMATION */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url("https://raw.githubusercontent.com/Priya-Assets/star-bg/main/star-layer.gif");
+  opacity: 0.15;
+  z-index: -1;
 }
 
 /* SIDEBAR NAVIGATION */
@@ -65,7 +81,7 @@ body {
   transform: scale(1.05);
 }
 
-/* MAIN CONTENT AREA */
+/* MAIN CONTENT */
 .main-content {
   margin-left: 200px;
   padding: 2rem;
@@ -163,7 +179,7 @@ body {
   min-width: 250px;
 }
 
-/* GRID SYSTEM */
+/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -184,8 +200,54 @@ body {
   background: #222;
   box-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
 }
+.edu-box {
+  background: #0f0f0f;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 16px;
+  border: 2px solid transparent;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.08);
+  transition: 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
 
-/* TAGS & SKILLS */
+.edu-box::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png'), linear-gradient(145deg, #0c0c20, #000);
+  z-index: -1;
+  background-size: cover;
+  border-radius: 20px;
+  opacity: 0.6;
+  filter: brightness(0.5);
+}
+
+.edu-box:hover {
+  border-color: #00bcd4;
+  box-shadow: 0 0 25px rgba(0, 188, 212, 0.4);
+}
+
+.edu-box h3 {
+  color: #00eaff;
+  font-weight: bold;
+}
+
+.edu-box p {
+  color: #d6f4ff;
+  margin: 0.4rem 0;
+}
+
+.edu-box strong {
+  color: #ffd700;
+}
+
+
+/* TAGS */
 .tag {
   display: inline-block;
   padding: 0.5rem 1rem;
@@ -209,7 +271,7 @@ body {
   50% { transform: translateY(-4px); }
 }
 
-/* CERTIFICATION BUTTONS */
+/* CERTIFICATION */
 .cert-btn {
   text-align: center;
   text-decoration: none;
@@ -254,9 +316,10 @@ body {
 
 .social-links img:hover {
   transform: scale(1.2);
-  filter: drop-shadow(0 0 8px #aa6b0c);
+  filter: drop-shadow(0 0 8px #00bcd4);
 }
-/* GLOW CONTACT FORM */
+
+/* CONTACT FORM */
 .contact-form {
   padding: 4rem 2rem;
   background: rgba(255, 255, 255, 0.02);
@@ -329,6 +392,6 @@ body {
   text-align: center;
   padding: 1rem;
   font-size: 0.9rem;
-  color: #0ddc7b;
+  color: #00bcd4;
   background-color: #111;
 }
