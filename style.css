@@ -200,6 +200,24 @@ body::before {
   background: #222;
   box-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
 }
+.project-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.4rem;
+  font-weight: bold;
+  background: #00bcd4;
+  color: #000;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px rgba(0, 188, 212, 0.4);
+}
+
+.project-btn:hover {
+  background-color: #0097a7;
+  box-shadow: 0 0 14px #00bcd4;
+  transform: translateY(-2px);
+}
 .edu-box {
   background: #0f0f0f;
   padding: 1.5rem;
