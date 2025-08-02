@@ -4,17 +4,16 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
+  margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
-  color: #ffffff;
-  line-height: 1.6;
-  display: flex;
-  min-height: 100vh;
-  background: #0a0a23;
-  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+  background: url("images/night-sky.png") no-repeat center center fixed;
   background-size: cover;
-  background-attachment: fixed;
+  color: #ffffff;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 /* STARS ANIMATION */
@@ -47,7 +46,7 @@ body::before {
 }
 
 .logo {
-  color: #00bcd4;
+  color: #095dac;
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 2rem;
@@ -67,7 +66,7 @@ body::before {
   text-align: center;
   background-color: transparent;
   padding: 0.7rem 1rem;
-  border: 2px solid #00bcd4;
+  border: 2px solid #0c85c7;
   border-radius: 8px;
   color: #00bcd4;
   font-weight: bold;
@@ -83,10 +82,17 @@ body::before {
 
 /* MAIN CONTENT */
 .main-content {
-  margin-left: 200px;
+  margin-left: 0;
+  width: 100%;
   padding: 2rem;
-  width: calc(100% - 200px);
+  transition: all 0.3s ease;
 }
+/* When sidebar is visible, push content to the right */
+.sidebar-visible .main-content {
+  margin-left: 220px;
+  width: calc(100% - 220px);
+}
+
 
 /* HERO SECTION */
 .hero {
@@ -412,4 +418,78 @@ body::before {
   font-size: 0.9rem;
   color: #00bcd4;
   background-color: #111;
+}
+.sidebar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 220px;
+  background-color: #111;
+  padding: 2rem 1rem;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #00bcd4 #1b1b1b;
+}
+.sidebar-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-wrapper::-webkit-scrollbar-thumb {
+  background-color: #00bcd4;
+  border-radius: 3px;
+}
+
+
+.hamburger {
+  font-size: 28px;
+  color: #00bcd4;
+  padding: 1rem;
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1100;
+  background: #121212;
+  border-radius: 10px;
+}
+
+.sidebar-wrapper.hide {
+  transform: translateX(-100%);
+}
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00bcd4;
+  margin: 3.5rem 0 2rem 0;  /* Top margin increased */
+  text-align: center;
+}
+
+
+.navbar .nav-links {
+  list-style: none;
+  padding: 0;
+}
+
+.navbar .nav-links li {
+  margin-bottom: 1.2rem;
+}
+
+.navbar .nav-links li a {
+  color: #00bcd4;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navbar .nav-links li a:hover {
+  color: #fff;
+}
+/* For full-width when sidebar is hidden */
+.main-content.expanded {
+  margin-left: 0;
+  width: 100%;
+  transition: margin-left 0.3s ease;
 }
